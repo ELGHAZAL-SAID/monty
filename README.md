@@ -2,34 +2,6 @@
 
 `monty` is an interpreter of Monty ByteCodes files, which is a scripting language just like Python.
 
-## About the Monty language
-This is a language that contains specific instructions to manipulate data information (stacks or queues), where each instruction (*called opcode*) is sended per line. Files which contains Monty byte codes usually have the `.m` extension.
-
-Example (`file.m`):
-```bash
-$ cat file.m
-# Pushing element to the stack
-push 0
-push 1
-push 2
-# Printing all elements
-pall
-push 3
-push 4
-pop
-# Rotating the stack to the bottom
-rotr
-pall
-rotl
-# Setting FIFO
-queue
-push 5
-# Setting LIFO
-stack
-push 5
-$
-```
-
 ## Technologies
 * Interpreter was written with C language
 * C files are compiled using `gcc 4.8.4`
@@ -39,7 +11,8 @@ $
 ## Usage
 To compile all files:
 
-```bash
+***bash***
+```
 $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 $
 ```
@@ -51,7 +24,7 @@ $ ./monty [filename]
 $
 ```
 
-To run the interpreter:
+runing the interpreter:
 
 ```bash
 $ ./monty file.m
@@ -64,7 +37,6 @@ $ ./monty file.m
 1
 $
 ```
-
 ## Features
 ### Opcodes
 `monty` executes the following opcodes:
@@ -90,18 +62,6 @@ $
 | `rotr` | Rotates the stack to the bottom |
 
 Comments, indicated with `#`, are not executed by the interpreter.
-
-When a **nonextistent opcode** is passed, the interpreter prints an error message and stops:
-
-```bash
-$ cat errorfile.m
-push 1
-pint
-pcx
-$ ./monty errorfile.m
-1
-L3: unknown instruction pcx
-```
 
 ### Return value
 When there is no errors, `monty` returns `0`. Otherwise, returns `1`
